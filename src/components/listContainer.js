@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import I from "immutable";
+import deleteTodo from "../actions/deleteTodo.js";
 
 class ListContainer extends Component {
-  constructor(props) {
-    super(props);
+
+  shouldComponentUpdate(nextProps) {
+    return !I.is(nextProps.todoItems, this.props.todoItems);
   }
 
   render() {
@@ -12,19 +14,13 @@ class ListContainer extends Component {
     return (
       <div className="list-container">
         {
-          items.map((each, idx) => {
+          items.map(each => {
             return (
-              <div key={idx} className="each-todo">
-                {each}
+              <div key={each.get("id")} className="each-todo">
+                {each.get("text")}
                 {
-                  /*
-                    you should have a delete button for each todo item like that,
-                    and delete button should dispatch delete functionality for reducer
-                    (Hint: you can look at what we did for add-task button)
-                    (Hint: do not forget to bring dispatch method from "app.js" like we did for form)
-                   */
                   <button
-                    onClick={() => {}}
+                    onClick={() => deleteTodo(this.props.dispatch, each.get("id"))}
                     className="delete-icon"
                   >{"X"}
                   </button>

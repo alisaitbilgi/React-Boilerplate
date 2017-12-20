@@ -2,18 +2,43 @@ import I from "immutable";
 
 function reducer(state = I.Map(), action) {
   switch (action.type) {
+
     case "ADD_CURRENT_INPUT":
       return state.set("currentInput", action.data);
+
+
     case "ADD_TODO_ITEM":
       const currentItems = state.get("todoItems", I.List());
 
       return state.set("todoItems", currentItems.push(action.data));
-    case "DELETE_TODO_TEST_ITEM":
+
+
+    case "DELETE_TODO_ITEM":
+      const currentList = state.get("todoItems", I.List());
+      const newList = currentList.filter(each => each.get("id") !== action.id);
+
+      return state.set("todoItems", newList);
+
       /*
-      you should do delete operation here. Do not forget to change data structure for to-do items,
-      you might have array of objects for to-do items, like that:
-      [{id: 123, text: "hello ege"}, {id: 125, text: "new structure"}]
-       */
+        case "ADD_CURRENT_SEARCH_TEXT":
+
+        return state.set("searchText", do your operation to add current search input)
+      */
+
+      /*
+
+        you can use "includes()" method to filter texts..
+
+        look at the documentation:
+        https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes
+
+        case "SEARCH_TODO_ITEM":
+
+        return state.set("todoItems", do your operation.. you need to filter to-do items...)
+
+      */
+
+
     default:
       return state;
   }
