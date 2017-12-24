@@ -11,13 +11,13 @@ body {
     justify-content: space-between;
     height: 100vh;
     background: #2980b9 url(
-        "http://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png"
+    "http://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png"
     ) repeat 0 0;
-	-webkit-animation: 100s linear 0s normal none infinite animate;
-	-moz-animation: 100s linear 0s normal none infinite animate;
-	-ms-animation: 100s linear 0s normal none infinite animate;
-	-o-animation: 100s linear 0s normal none infinite animate;
-	animation: 100s linear 0s normal none infinite animate;
+    -webkit-animation: 100s linear 0s normal none infinite animate;
+    -moz-animation: 100s linear 0s normal none infinite animate;
+    -ms-animation: 100s linear 0s normal none infinite animate;
+    -o-animation: 100s linear 0s normal none infinite animate;
+    animation: 100s linear 0s normal none infinite animate;
 }
 
 input, button {
@@ -80,6 +80,18 @@ input, button {
     height: 30px;
 }
 
+.search-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    background-color: #0088ff;
+    color: #ffffff;
+    text-transform: uppercase;
+    width: 100px;
+    height: 30px;
+}
+
 .fetch-task-btn {
     display: flex;
     justify-content: center;
@@ -97,8 +109,8 @@ input, button {
 }
 
 .list-container {
-    height: 300px;
-    max-height: 95%;
+    height: 70%;
+    max-height: 80%;
     padding-top: 20px;
 }
 
