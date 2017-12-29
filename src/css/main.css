@@ -6,7 +6,6 @@
 body {
     margin: 0;
     padding: 0;
-    font-size: 12px;
     display: flex;
     justify-content: space-between;
     height: 100vh;
@@ -112,6 +111,7 @@ input, button {
     height: 70%;
     max-height: 80%;
     padding-top: 20px;
+    font-size: 18px;
 }
 
 .each-todo {

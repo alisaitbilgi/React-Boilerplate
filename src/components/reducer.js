@@ -19,25 +19,9 @@ function reducer(state = I.Map(), action) {
 
       return state.set("todoItems", newList);
 
-      /*
-        case "ADD_CURRENT_SEARCH_TEXT":
 
-        return state.set("searchText", do your operation to add current search input)
-      */
-
-      /*
-
-        you can use "includes()" method to filter texts..
-
-        look at the documentation:
-        https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes
-
-        case "SEARCH_TODO_ITEM":
-
-        return state.set("todoItems", do your operation.. you need to filter to-do items...)
-
-      */
-
+    case "ADD_CURRENT_SEARCH_TEXT":
+      return state.set("searchText", action.data);
 
     default:
       return state;

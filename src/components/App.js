@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {createStore} from "redux";
 import FormContainer from "./formContainer.js";
 import ListContainer from "./listContainer.js";
+import SearchContainer from "./searchContainer.js";
 import reducer from "./reducer.js";
 import I from "immutable";
 import "normalize.css";
@@ -35,25 +36,13 @@ class App extends Component {
         />
         <ListContainer
           todoItems={this.state.main.get("todoItems", I.List())}
+          searchText={this.state.main.get("searchText", "")}
           dispatch={this.store.dispatch}
         />
-        {
-          /*
-            Add here a search container for example. Don't forget to pass "dispatch" method
-            and "searchText" props...  Inside of this search container you must make very similar things that we did
-            in "FormContainer" component. Take text from input:
-            1) dispatch an addCurrentSearchInput.js action
-            2) go to reducer add "ADD_CURRENT_SEARCH_TEXT" functionality,
-            3) take searchText from store pass it to searchContainer component as a prop.
-            4) when search button is entered dispatch an action as searchTodo.js
-            5) go to reducer add "SEARCH_TODO_ITEM" functionality to update store... look to reducer.
-
-            <SearchContainer
-              dispatch={this.store.dispatch}
-              searchText={this.state.main.get("searchText", "")}
-            />
-          */
-        }
+        <SearchContainer
+          dispatch={this.store.dispatch}
+          searchText={this.state.main.get("searchText", "")}
+        />
       </div>
     );
   }
