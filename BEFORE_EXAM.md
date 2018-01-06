@@ -37,4 +37,4 @@ according to "current action” and then returns "new store”.
 #### Input Component wants to update List Component:
 
 
-![alt text](https://www.dropbox.com/home?preview=Screen+Shot+2018-01-06+at+9.14.06+PM.png)
+![alt text](./react-redux.png)
