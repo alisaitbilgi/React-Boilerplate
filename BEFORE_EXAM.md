@@ -17,7 +17,7 @@ according to "current action” and then returns "new store”.
            case: “ADD_TODO”:
            const newStore = oldStore + action.data  // 
         
-           Return newStore;  // returns newStore which is updated version of the oldStore.
+           return newStore;  // returns newStore which is updated version of the oldStore.
         }
 
 3) **Action** is an object which says reducer what to do.
