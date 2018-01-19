@@ -34,7 +34,8 @@ according to "current action” and then returns "new store”.
         dispatch(action);  // Calls reducer with our action.
         
 
- ## Example: When Input Component wants to update List Component flow will be like:
+ ## Example: 
+ ## Input Component wants to update List Component flow will be like:
 
 
 ![alt text](./react-redux.png)
