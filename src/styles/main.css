@@ -137,6 +137,10 @@ input, button {
     opacity: 0.3;
 }
 
+button {
+    cursor: pointer;
+}
+
 @-webkit-keyframes animate {
     from {background-position:0 0;}
     to {background-position: 500px 0;}
