@@ -5,12 +5,19 @@ import "../styles/main.css";
 class App extends Component {
   constructor(props){
     super(props);
+    this.state = {todoItem: "Create first redux flow..."};
   }
 
-  // ...methods are here...
+  handleClick(text) {
+    return () => {
+      this.setState({
+        todoItem: this.state.todoItem + text
+      })
+    }
+  }
 
   render() {
-    // variables stays here...
+    var textTbAdded = " (Done)";
 
     return (
       <div className="app">
@@ -22,8 +29,13 @@ class App extends Component {
         </form>
         <div className="list-container">
           <div className="each-todo">
-            <span>{"Create first redux flow..."}</span>
-            <button className="delete-icon">{"X"}</button>
+            <span>{this.state.todoItem}</span>
+            <button
+              onClick={this.handleClick(textTbAdded)}
+              className="delete-icon"
+            >
+              {"X"}
+            </button>
           </div>
         </div>
       </div>
