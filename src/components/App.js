@@ -8,17 +8,7 @@ class App extends Component {
     this.state = {todoItem: "Create first redux flow..."};
   }
 
-  handleClick(text) {
-    return () => {
-      this.setState({
-        todoItem: this.state.todoItem + text
-      })
-    }
-  }
-
   render() {
-    var textTbAdded = " (Done)";
-
     return (
       <div className="app">
         <form className="form-container">
@@ -31,7 +21,6 @@ class App extends Component {
           <div className="each-todo">
             <span>{this.state.todoItem}</span>
             <button
-              onClick={this.handleClick(textTbAdded)}
               className="delete-icon"
             >
               {"X"}
