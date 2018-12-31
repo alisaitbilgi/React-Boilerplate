@@ -1,6 +1,4 @@
-import I from "immutable";
-
-function reducer(store = I.Map(), action) {
+function reducer(store = {}, action) {
   switch (action.type) {
 
     default:

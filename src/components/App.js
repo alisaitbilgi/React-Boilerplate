@@ -3,14 +3,13 @@ import "normalize.css";
 import "../styles/main.css";
 import {createStore} from "redux";
 import reducer from "../reducers/reducer.js";
-import I from "immutable";
 
 class App extends Component {
   constructor(props){
     super(props);
     this.store = createStore(reducer);
     this.state = {
-      main: I.Map()
+      main: {}
     };
   }
 
