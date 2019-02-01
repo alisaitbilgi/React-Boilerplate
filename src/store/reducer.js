@@ -1,6 +1,6 @@
 import I from 'immutable'
 
-export default function reducers(store = I.Map(), action) {
+export default function reducer(store = I.Map(), action) {
   switch (action.type) {
     default:
       return store;

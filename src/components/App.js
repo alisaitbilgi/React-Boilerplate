@@ -1,5 +1,4 @@
 import React from "react";
-import { uuid } from '../index.js';
 import "normalize.css";
 import "../styles/main.css";
 import TodoForm from './TodoForm.js';
