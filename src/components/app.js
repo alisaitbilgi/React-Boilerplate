@@ -1,36 +1,38 @@
 import React, { Component } from "react";
+import TodoForm from './todoForm';
+import TodoList from './todoList';
 import "../styles/main.css";
+import { createStore } from "redux";
+import reducer from "../reducers/reducer.js";
 
 class App extends Component {
   constructor(props){
     super(props);
+    this.store = createStore(reducer);
     this.state = {
-      todoText: "Hello TEB",
-      todoItems: ["Do workshop", "Make presentation", "Say hello"]
+      main: {
+        todoText: "",
+        todoItems: ["Do workshop", "Make presentation", "Say hello"]
+      }
     };
+  }
+
+  componentDidMount() {
+    this.store.subscribe(() => {
+      this.setState({
+        main: this.store.getState()
+      });
+    });
   }
 
   render() {
     return (
       <div className="app">
-        <form className="form-container" onSubmit={(e) => e.preventDefault()}>
-          <input
-            className="input-field"
-            value={this.state.todoText}
-            onChange={() => {/* do nothing for now */}}
-          />
-          <button className="add-task-btn">{"Add Task"}</button>
-        </form>
-        <div className="list-container">
-          {
-            this.state.todoItems.map((eachTodo, idx) => (
-              <div className="each-todo" key={idx}>
-                <span>{eachTodo}</span>
-                <button className="delete-icon">{"X"}</button>
-              </div>
-            ))
-          }
-        </div>
+        <TodoForm
+          todoText={this.state.main.todoText}
+          dispatch={this.store.dispatch}
+        />
+        <TodoList todoItems={this.state.main.todoItems}/>
       </div>
     );
   }
