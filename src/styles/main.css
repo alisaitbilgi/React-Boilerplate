@@ -21,6 +21,7 @@ body {
 
 input, button {
     border: none;
+    outline: none;
 }
 
 #root {
