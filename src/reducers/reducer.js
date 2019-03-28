@@ -7,7 +7,7 @@ function reducer(store = defaultStore, action) {
 
   switch (action.type) {
     case "SET_TEXT":
-      return Object.assign(store, { todoText: action.data });
+    return Object.assign({}, store, { todoText: action.data });
 
     default:
       return store;

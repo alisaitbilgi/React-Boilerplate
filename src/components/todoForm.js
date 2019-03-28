@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../styles/main.css";
+import { connect } from "react-redux";
 
 class TodoForm extends Component {
   render() {
@@ -8,7 +9,7 @@ class TodoForm extends Component {
         <input
           className="input-field"
           value={this.props.todoText}
-          onChange={e => this.props.dispatch({ type: "SET_TEXT", data: e.target.value })}
+          onChange={e => this.props.setText(e.target.value)}
         />
         <button className="add-task-btn">
           {"Add Task"}
@@ -18,4 +19,20 @@ class TodoForm extends Component {
   }
 }
 
-export default TodoForm;
+const mapStateToProps = (store) => {
+  return {
+    todoText: store.todoText
+  }
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setText: text => {
+      dispatch({
+        type: "SET_TEXT",
+        data: text
+      })
+    }
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoForm);
