@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "../styles/main.css";
-import { connect } from 'react-redux';
 
 class TodoList extends Component {
   render() {
@@ -20,10 +19,4 @@ class TodoList extends Component {
   }
 }
 
-const mapStateToProps = (store) => {
-  return {
-    todoItems: store.todoItems
-  }
-};
-
-export default connect(mapStateToProps)(TodoList);
+export default TodoList;
