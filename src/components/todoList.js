@@ -1,7 +1,12 @@
 import React, { Component } from "react";
-import "../styles/main.css";
 
 class TodoList extends Component {
+
+  /*
+  shouldComponentUpdate
+  Pure.Component
+  */
+
   render() {
     const { todoItems } = this.props;
 

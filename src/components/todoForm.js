@@ -1,17 +1,21 @@
 import React, { Component } from "react";
-import "../styles/main.css";
 
 class TodoForm extends Component {
-
   handleChange(dispatch) {
     return e => {
-      dispatch({ type: "SET_TEXT", data: e.target.value })
+      dispatch({
+        type: "SET_TEXT",
+        data: e.target.value
+      })
     }
   }
 
   handleClick(dispatch, todoText) {
     return () => {
-      dispatch({ type: "SET_TODO_ITEM", data: todoText})
+      dispatch({
+        type: "SET_TODO_ITEM",
+        data: todoText
+      })
     }
   }
 
@@ -21,9 +25,9 @@ class TodoForm extends Component {
     return (
       <form className="form-container" onSubmit={(e) => e.preventDefault()}>
         <input
-          className="input-field"
-          value={todoText}
           onChange={this.handleChange(dispatch)}
+          value={todoText}
+          className="input-field"
         />
         <button
           onClick={this.handleClick(dispatch, todoText)}

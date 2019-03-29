@@ -31,13 +31,8 @@ class App extends Component {
 
     return (
       <div className="app">
-        <TodoForm
-          todoText={todoText}
-          dispatch={dispatch}
-        />
-        <TodoList
-          todoItems={todoItems}
-        />
+        <TodoForm todoText={todoText} dispatch={dispatch}/>
+        <TodoList todoItems={todoItems}/>
       </div>
     );
   }
