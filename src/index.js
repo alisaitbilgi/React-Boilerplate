@@ -4,8 +4,10 @@ import App from './components/App.js';
 
 Array.prototype.set = function (item) {
   this.push(item);
+  const newArr = Object.assign([], this);
+  this.pop();
 
-  return this;
-}
+  return newArr;
+};
 
 ReactDOM.render(<App />, document.getElementById('root'));
