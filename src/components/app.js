@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TodoForm from './todoForm';
 import TodoList from './todoList';
+import I from 'immutable';
 import "../styles/main.css";
 import { createStore } from "redux";
 import reducer from "../reducers/reducer.js";
@@ -9,12 +10,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.store = createStore(reducer);
-    this.state = {
-      main: {
-        todoText: "",
-        todoItems: ["Do workshop", "Make presentation", "Say hello"]
-      }
-    };
+    this.state = { main: I.Map() };
   }
 
   componentDidMount() {
@@ -26,8 +22,10 @@ class App extends Component {
   }
 
   render() {
-    const { todoText, todoItems } = this.state.main;
     const { dispatch } = this.store;
+    const { main } = this.state;
+    const todoText = main.get('todoText', '');
+    const todoItems = main.get('todoItems', I.List());
 
     return (
       <div className="app">

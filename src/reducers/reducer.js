@@ -1,17 +1,15 @@
-const defaultStore = {
-  todoItems: ["Do workshop", "Make presentation", "Say hello"],
-  todoText: ""
-};
+import I from 'immutable';
 
-function reducer(store = defaultStore, action) {
+function reducer(store = I.Map(), action) {
   switch (action.type) {
     case "SET_TEXT":
-      return Object.assign({}, store, { todoText: action.data });
+      return store.set('todoText', action.data);
 
     case "SET_TODO_ITEM":
-      const newTodoItems = store.todoItems.set(action.data);
+      const todoItems = store.get('todoItems', I.List());
+      const newTodoItems = todoItems.push(action.data);
 
-      return Object.assign({}, store, { todoItems: newTodoItems });
+      return store.set('todoItems', newTodoItems);
 
     default:
       return store;
