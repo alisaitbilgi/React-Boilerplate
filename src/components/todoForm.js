@@ -7,8 +7,6 @@ class TodoForm extends Component {
       <form className="form-container" onSubmit={(e) => e.preventDefault()}>
         <input
           className="input-field"
-          value={this.props.todoText}
-          onChange={e => this.props.dispatch({ type: "SET_TEXT", data: e.target.value })}
         />
         <button className="add-task-btn">
           {"Add Task"}

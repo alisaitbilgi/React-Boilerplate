@@ -1,14 +1,11 @@
 const defaultStore = {
   todoItems: ["Do workshop", "Make presentation", "Say hello"],
-  todoText: ""
+  todoText: "HELLO TEB"
 };
 
 function reducer(store = defaultStore, action) {
 
   switch (action.type) {
-    case "SET_TEXT":
-      return Object.assign({}, store, { todoText: action.data });
-
     default:
       return store;
   }
