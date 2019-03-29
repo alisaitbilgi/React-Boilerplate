@@ -26,13 +26,18 @@ class App extends Component {
   }
 
   render() {
+    const { todoText, todoItems } = this.state.main;
+    const { dispatch } = this.store;
+
     return (
       <div className="app">
         <TodoForm
-          todoText={this.state.main.todoText}
-          dispatch={this.store.dispatch}
+          todoText={todoText}
+          dispatch={dispatch}
         />
-        <TodoList todoItems={this.state.main.todoItems}/>
+        <TodoList
+          todoItems={todoItems}
+        />
       </div>
     );
   }
