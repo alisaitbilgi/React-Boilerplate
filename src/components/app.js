@@ -11,7 +11,7 @@ class App extends Component {
     this.store = createStore(reducer);
     this.state = {
       main: {
-        todoText: "HELLO TEB",
+        todoText: "",
         todoItems: ["Do workshop", "Make presentation", "Say hello"]
       }
     };
@@ -26,10 +26,13 @@ class App extends Component {
   }
 
   render() {
+    const { todoText, todoItems } = this.state.main;
+    const { dispatch } = this.store;
+
     return (
       <div className="app">
-        <TodoForm todoText={this.state.main.todoText}/>
-        <TodoList todoItems={this.state.main.todoItems}/>
+        <TodoForm todoText={todoText} dispatch={dispatch}/>
+        <TodoList todoItems={todoItems}/>
       </div>
     );
   }
