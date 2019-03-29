@@ -1,5 +1,4 @@
 import React, { PureComponent } from "react";
-import "../styles/main.css";
 
 class TodoList extends PureComponent {
   render() {
