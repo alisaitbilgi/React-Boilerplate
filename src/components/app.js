@@ -14,11 +14,7 @@ class App extends Component {
     return (
       <div className="app">
         <form className="form-container" onSubmit={(e) => e.preventDefault()}>
-          <input
-            className="input-field"
-            value={this.state.todoText}
-            onChange={() => {/* do nothing for now */}}
-          />
+          <input className="input-field"/>
           <button className="add-task-btn">{"Add Task"}</button>
         </form>
         <div className="list-container">
