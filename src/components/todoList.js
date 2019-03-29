@@ -1,6 +1,8 @@
-import React, { PureComponent } from "react";
+import React, { Component } from "react";
+import I from "immutable";
+import { connect } from "react-redux";
 
-class TodoList extends PureComponent {
+class TodoList extends Component {
   render() {
     const { todoItems } = this.props;
 
@@ -20,4 +22,10 @@ class TodoList extends PureComponent {
   }
 }
 
-export default TodoList;
+const mapStateToProps = (store) => {
+  return {
+    todoItems: store.get('todoItems', I.List())
+  }
+};
+
+export default connect(mapStateToProps)(TodoList);

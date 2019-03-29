@@ -1,36 +1,19 @@
-import React, { PureComponent } from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-class TodoForm extends PureComponent {
-  handleChange(dispatch) {
-    return e => {
-      dispatch({
-        type: "SET_TEXT",
-        data: e.target.value
-      })
-    }
-  }
-
-  handleClick(dispatch, todoText) {
-    return () => {
-      dispatch({
-        type: "SET_TODO_ITEM",
-        data: todoText
-      })
-    }
-  }
-
+class TodoForm extends Component {
   render() {
-    const { todoText, dispatch } = this.props;
+    const { todoText, handleChange, handleClick } = this.props;
 
     return (
       <form className="form-container" onSubmit={(e) => e.preventDefault()}>
         <input
-          onChange={this.handleChange(dispatch)}
+          onChange={handleChange()}
           value={todoText}
           className="input-field"
         />
         <button
-          onClick={this.handleClick(dispatch, todoText)}
+          onClick={handleClick(todoText)}
           className="add-task-btn"
         >
           {"Add Task"}
@@ -40,4 +23,30 @@ class TodoForm extends PureComponent {
   }
 }
 
-export default TodoForm;
+const mapStateToProps = (store) => {
+  return {
+    todoText: store.get('todoText', '')
+  }
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleClick: (todoText) => {
+      return () => {
+        dispatch({
+          type: "SET_TODO_ITEM",
+          data: todoText
+        })
+      }
+    },
+    handleChange: () => {
+      return e => {
+        dispatch({
+          type: "SET_TEXT",
+          data: e.target.value
+        })
+      }
+    }
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoForm);

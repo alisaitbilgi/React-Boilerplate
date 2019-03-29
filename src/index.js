@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app.js';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducer from './reducers/reducer';
 
-Array.prototype.set = function (item) {
-  this.push(item);
-  const newArr = Object.assign([], this);
-  this.pop();
+const store = createStore(reducer);
 
-  return newArr;
-};
-
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
