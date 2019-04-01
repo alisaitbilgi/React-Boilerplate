@@ -11,7 +11,7 @@ class TodoList extends Component {
         {
           todoItems &&
           todoItems.map((eachTodo, idx) => (
-            <div className="each-todo" key={idx}>
+            <div key={idx} className="each-todo" >
               <span>{eachTodo}</span>
               <button className="delete-icon">{"X"}</button>
             </div>
